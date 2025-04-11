@@ -10,6 +10,16 @@ const messageSchema = mongoose.Schema(
       type: String,
       require: true,
     },
+    sender: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      require: true,
+    },
+    recipient: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      require: true,
+    },
   },
   { timestamps: true }
 );

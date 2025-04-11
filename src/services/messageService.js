@@ -12,9 +12,14 @@ export const addMessageservice = (message, username) => {
   }
 };
 
-export const getMessageservice = () => {
+export const getMessageservice = async( senderId, recipientId) => {
   try {
-    const messages = Message.find().sort({ timestamps: 1 });
+    const messages = await Message.find({
+        $or: [
+          { sender: senderId, recipient: recipientId },
+          { sender: recipientId, recipient: senderId }
+        ]
+      }).sort({ timestamp: 1 });
     if (!messages) {
       throw new Error("no message foundd");
     }

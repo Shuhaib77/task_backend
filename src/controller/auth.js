@@ -11,7 +11,7 @@ export const register = async (req, res) => {
   if (!data) {
     return res.status(404).json({ message: "register failed!" });
   }
-  res.status(201).json({ message: "register successfull!" });
+  res.status(201).json({ message: "register successfull!" ,data:data});
 };
 
 export const login = async (req, res) => {

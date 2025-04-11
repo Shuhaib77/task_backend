@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const taskSchema = mongoose.Schema(
   {
@@ -11,7 +11,7 @@ const taskSchema = mongoose.Schema(
       require: true,
     },
     user: {
-      type: Schema.ObjectId,
+      type: mongoose.Schema.ObjectId,
       ref: "User",
     },
     status: {
